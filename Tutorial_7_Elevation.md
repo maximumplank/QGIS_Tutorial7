@@ -12,9 +12,9 @@ However, as stated before, in this tutorial we will use the freely available AST
 
 As a first step
 
-**we again load the raster dataset “S2_Neapel_sm2.tif” located in the “Datasets/S2” folder and adapt the visualization settings to have a balanced view of all classes by using the channels R=3, G=2, B=1 and loading new max / min values using the “Symbology”-tab in the properties window. Then we add the ASTER dataset which is called “ASTGTM2_N40E014_dem.tif” and which can be downloaded here:
+**we again load the raster dataset “S2_Neapel_sm2.tif” located in the “Datasets/S2” folder and adapt the visualization settings to have a balanced view of all classes by using the channels R=3, G=2, B=1 and loading new max / min values using the “Symbology”-tab in the properties window. Then we add the ASTER dataset which is called “ASTGTM2_N40E014_dem.tif” and which can be downloaded here:**
 
-#insert link
+https://drive.google.com/file/d/1TjHeuPUX_SLzBFrQqblocHJOUJg45UTG/view?usp=share_link
 
 This will lead to the situation shown in Figure 1. There are now two problems that we need to address. The first problem is not directly apparent, but currently the ASTER dataset and the satellite image have differing coordinate systems. This could lead to some problems when both images are used jointly in a geoprocessing tool. Hence, as a first step, we will reproject the ASTER dataset to the same coordinate reference system as the satellite image.
 
@@ -26,7 +26,7 @@ Furthermore, as you can see in Figure 1 the elevation dataset covers an area tha
 
 To re–check whether the ASTER dataset really has a different coordinate reference system (CRS) than the satellite image we can
 
-**perform a right–click on the “ASTGTM2_N40E014_dem” layer and select “Properties”. Then we select the “General” tab and as seen in Figure 2, the current CRS is set to EPSG 4326. If we now check the same entry for the “S2_Neapel_sm2” layer, we will see that here the CRS is set to EPSG 32633. This is also the CRS defined for the current QGIS project as seen in the bottom right of the QGIS project (next to the little world globe). We close the window by pressing “cancel” and then start the “Reproject” tool by selecting “Raster” -> “Projections” -> “Warp (Reproject)...” from the main menu in QGIS as shown in Figure 3**
+**perform a right–click on the “ASTGTM2_N40E014_dem” layer and select “Properties”. Then we select the “Source” tab and as seen in Figure 2, the current CRS is set to EPSG 4326. If we now check the same entry for the “S2_Neapel_sm2” layer, we will see that here the CRS is set to EPSG 32633. This is also the CRS defined for the current QGIS project as seen in the bottom right of the QGIS project (next to the little world globe). We close the window by pressing “cancel” and then start the “Reproject” tool by selecting “Raster” -> “Projections” -> “Warp (Reproject)...” from the main menu in QGIS as shown in Figure 3**
 
 ![Figure 2: The coordinate system of the ASTER elevation dataset.](Fig2_Tut7.png)
 
