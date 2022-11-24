@@ -1,30 +1,26 @@
 # QGIS - Tutorials 
 ## Tutorial 7 - Working with elevation raster datasets in QGIS
 
-Fabian Fassnacht
-
-Institute for Geography and Geoecology
- 
-KIT—Karlsruhe Institute of Technology 
-
-July 17, 2017
-
 **Abstract**
 
-After completing this tutorial you will know how to work with raster files containing elevation data. You will be able to calculate an aspect image, a slope image and know how to set height thresholds. Furthermore, you will learn how a raster file can be clipped to a desired extent and how an elevation raster can be transformed to height contour lines and how labels can be added to a vector file. Last but not least, you will learn how to re–project raster files in QGIS to adapt their coordinate reference systems. Developed with QGIS version - LAS PALMAS 2.18.9
+After completing this tutorial you will know how to work with raster files containing elevation data. You will be able to calculate an aspect image, a slope image and know how to set height thresholds. Furthermore, you will learn how a raster file can be clipped to a desired extent and how an elevation raster can be transformed to height contour lines and how labels can be added to a vector file. Last but not least, you will learn how to re–project raster files in QGIS to adapt their coordinate reference systems. Developed with QGIS version - Bialowieza 3.22.5
 
 ## 1 Reprojecting and cutting a raster to a desired extent
-In this tutorial we will learn how we can use a raster dataset containing elevation information to extract additional information concerning for example the exposition (which direction a certain pixel or area is facing) or the steepness of a certain location in the raster dataset. In this Tutorial we will make use of a elevation dataset provided by United States Geological Survey (USGS). This dataset stems from a satellite mission called ASTER. The data of ASTER was transformed to an almost global elevation dataset by analysing a huge amount of satellite images that were collected from differing view angles (typically more than 10 and in some cases over 30 satellite images for each location of the Earth). Elevation datasets can also be collected from other sources including field data (for example using **traditional survey techniques** which is rather time-intensive or **GPS** which is faster but also less precise as the z-position generally works not as accurate as x- and y-position using standard GPS devices) and remote sensing data as for example airborne laserscanning or since recently also airborne photogrammetry using aerial images. The currently most accurate, spatially continuous elevation datasets can be collected with laserscanning devices mounted on airplanes or helicopters (we briefly heard about this in the theory lectures).
+In this tutorial we will learn how we can use a raster dataset containing elevation information to extract additional information concerning for example the exposition also referred to as aspect (which direction a certain pixel or area is facing) or the steepness (slope) of a certain location in the raster dataset. In this Tutorial we will make use of a elevation dataset provided by United States Geological Survey (USGS). This dataset stems from a satellite mission called ASTER. The data of ASTER was transformed to an almost global elevation dataset by analysing a huge amount of satellite images that were collected from differing view angles (typically more than 10 and in some cases over 30 satellite images for each location of the Earth). Elevation datasets can also be collected from other sources including field data (for example using **traditional survey techniques** which is rather time-intensive or **GPS** which is faster but also less precise as the z-position generally works not as accurate as x- and y-position using standard GPS devices) and remote sensing data as for example airborne laserscanning or since recently also airborne photogrammetry using aerial images. The currently most accurate, spatially continuous elevation datasets can be collected with laserscanning devices mounted on airplanes or helicopters (we will hear about this in the theoretic lectures after the  christmas break).
 
 However, as stated before, in this tutorial we will use the freely available ASTER datasets with a pixel size of approximately 30 m.
 
 As a first step
 
-**we again load the raster dataset “S2_Neapel_sm2.tif” located in the “Datasets/S2” folder and adapt the visualization settings to have a balanced view of all classes by using the channels R=3, G=2, B=1 and loading new max / min values using the “Style”-tab in the properties window. Then we add the ASTER dataset which is called “ASTGTM2_N40E014_dem.tif” and which can be found in the “Datasets/elevation” folder.**
+**we again load the raster dataset “S2_Neapel_sm2.tif” located in the “Datasets/S2” folder and adapt the visualization settings to have a balanced view of all classes by using the channels R=3, G=2, B=1 and loading new max / min values using the “Symbology”-tab in the properties window. Then we add the ASTER dataset which is called “ASTGTM2_N40E014_dem.tif” and which can be downloaded here:
 
-This will lead to the situation shown in Figure 1. There are now two problems that we need to address. The first problem is not directly apparent, but currently the ASTER dataset and the satellite image have differing coordinate systems. This could lead to some problems when both images are used jointly in a process. Hence, as a first step, we will reproject the ASTER dataset to the same coordinate reference system as the satellite image.
+#insert link
+
+This will lead to the situation shown in Figure 1. There are now two problems that we need to address. The first problem is not directly apparent, but currently the ASTER dataset and the satellite image have differing coordinate systems. This could lead to some problems when both images are used jointly in a geoprocessing tool. Hence, as a first step, we will reproject the ASTER dataset to the same coordinate reference system as the satellite image.
 
 ![Figure 1: After loading the two raster datasets.](Fig1_Tut7.png)
+
+**Figure 1: After loading the two raster datasets.**
 
 Furthermore, as you can see in Figure 1 the elevation dataset covers an area that is larger than the satellite image and hence overlaps it completely. We will address this problem in a second step by clipping the ASTER dataset. But let us start with the reprojection.
 
