@@ -63,13 +63,19 @@ We have just successfully re–projected and clipped our elevation dataset. Next
 
 ![Figure 7: Searching and selecting the “Slope” tool in the processing toolbox of QGIS.](Fig7_Tut7.png)
 
+**Figure 7: Searching and selecting the “Slope” tool in the processing toolbox of QGIS.**
+
 **selecting “Processing” -> “Toolbox” from the main menu in QGIS to open the Processing Toolbox window (in case it is not already open). Then we will type “slope” into the search field of the Processing Toolbox window (marked with “1” in Figure 7) and select the tool “slope” as marked with “2“ in Figure 7. In the new dialogue, we select the re–projected and clipped elevation dataset as input file, define an output file and leave all other settings as they are (see Figure 8). We then confirm by pressing “run”.**
 
 ![Figure 8: Parameterizing the “slope” tool in QGIS.](Fig8_Tut7.png)
 
+**Figure 8: Parameterizing the “slope” tool in QGIS.**
+
 The newly created slope image should now appear in the main visualization window of QGIS (see Figure 9). The slope image shows the steepness of the terrain for each pixel of the raster dataset. If you compare the patterns of the slope image with the satellite scene, you will see that for example most of the urban areas are located in rather flat areas, while the mountainous areas and the vulcano have notably higher slopes.
 
 ![Figure 9: The slope image for study area.](Fig9_Tut7.png)
+
+**Figure 9: The slope image for study area.**
 
 We can now calculate the aspect image accordingly, by
 
@@ -77,23 +83,36 @@ We can now calculate the aspect image accordingly, by
 
 ![Figure 10: Searching and opening the “aspect” tool in the processing toolbox of QGIS.](Fig10_Tut7.png)
 
+**Figure 10: Searching and opening the “aspect” tool in the processing toolbox of QGIS.**
+
 ![Figure 11: Parameterizing the “aspect” tool.](Fig11_Tut7.png)
+
+**Figure 11: Parameterizing the “aspect” tool.**
 
 The newly created “aspect” image should now appear in main visualization window of QGIS. As you can see in Figure 12, the aspect image is a quite nice visualization of the terrain situation within the area as for examples valleys show contrasing aspect values for each side of the valley which are typically facing opposite directions and hence become very clearly visible in the aspect image. This is particularly well visible in the southern and eastern parts of the image where mountainous terrain is dominating the landscape.
 
 ![Figure 12: The aspect image of the study area.](Fig12_Tut7.png)
+
+**Figure 12: The aspect image of the study area.**
+
 ## 3 Extracting contour lines from the digital terrain model
 Currently our elevation data is stored in a raster layer dataset. On the one hand side this advantageous as we have a height value for each position in out test area. However, on the negative side, we cannot display the satellite image and the height information at the same time as only one raster dataset can be efficiently displayed at one time. A well-known alternative to an elevation raster dataset are height iso-lines also called contour lines which are frequently applied in topographic maps. In QGIS there is an option to automatically create contour lines from the elevation raster dataset. We will now make use of this option by
 
-**selecting “Raster” -> “Extraction” -> “Contour...” from the main menu of QGIS as shown in Figure 13. In the new dialogue we select the re–projected and clipped raster file as Input file (field marked with “1” in Figure 14), define an output file for the contour lines (field marked with “2”), we set the height interval to 50 m (field marked with “3”) and activate the “Attribute name” option by checking the check-box (marked with “4”). We then press “OK” to calculate the contour lines.**
+**selecting “Raster” -> “Extraction” -> “Contour...” from the main menu of QGIS as shown in Figure 13. In the new dialogue we select the re–projected and clipped raster file as Input file (field marked with “1” in Figure 14), define an output file for the contour lines (field marked with “2”), we set the height interval to 50 m (field marked with “3”). We can change the “Attribute name” (marked with “4”) if we want to. We then press “OK” to calculate the contour lines.**
 
 ![Figure 13: Opening the “Contour” tool in QGIS.](Fig13_Tut7.png)
 
+**Figure 13: Opening the “Contour” tool in QGIS.**
+
 ![Figure 14: Parameterizing the “Contour” tool.](Fig14_Tut7.png)
+
+**Figure 14: Parameterizing the “Contour” tool.**
 
 This will create the contour lines as illustrated in Figure 15. However, with the given illustration, the contour lines do not yet carry a lot information. We can see which pixels in the image have identical height values but we do not yet see where high and low values are. Hence, we will now add some labels to the contour lines indicating the height of the corresponding contour line.
 
 ![Figure 15: The contour lines extracted from the elevation dataset.](Fig15_Tut7.png)
+
+**Figure 15: The contour lines extracted from the elevation dataset.**
 
 To add labels to the contour lines vector file, we
 
@@ -101,9 +120,13 @@ To add labels to the contour lines vector file, we
 
 ![Figure 16: Adding labels to the contour lines extracted from the elevation dataset.](Fig16_Tut7.png)
 
+**Figure 16: Adding labels to the contour lines extracted from the elevation dataset.**
+
 This will result in the situation depicted in Figure 17 where we can now see the contour lines with labels indicating their height.
 
 ![Figure 17: Contour lines with labels added.](Fig17_Tut7.png)
+
+**Figure 17: Contour lines with labels added.**
 
 ## 4 Applying thresholds to a raster file
 As final step of this Tutorial, we will learn how to apply thresholds to raster files using the elevattion data as an example. We will use the raster calculator tool to accomplish this. Thresholds can for example be used to define all areas located above or below a certain value. In our example these will be elevation heights, however, in theory thresholds can be set for any raster file.
