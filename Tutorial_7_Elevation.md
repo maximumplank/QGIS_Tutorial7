@@ -30,7 +30,11 @@ To re–check whether the ASTER dataset really has a different coordinate refere
 
 ![Figure 2: The coordinate system of the ASTER elevation dataset.](Fig2_Tut7.png)
 
+**Figure 2: The coordinate system of the ASTER elevation dataset.**
+
 ![Figure 3: Opening the “Warp” tool.](Fig3_Tut7.png)
+
+**Figure 3: Opening the “Warp” tool.**
 
 This will open a new dialogue as seen in Figure 4. Here we can reproject the ASTER elevation data by
 
@@ -38,16 +42,21 @@ This will open a new dialogue as seen in Figure 4. Here we can reproject the AST
 
 ![Figure 4: Parameterizing the “Warp” tool.](Fig4_Tut7.png)
 
+**Figure 4: Parameterizing the “Warp” tool.**
+
 As next step, we will clip the re-projected elevation dataset to match roughly the extent of the satellite image. To do this we
 
-**select “Raster” -> “Extraction” -> “Clipper...” from the main menu in QGIS as shown in Figure 5. This will open a new dialogue as shown in Figure 6. In the given case we have to define three variables. We have to select the “ASTGTM2_N40E014_dem” layer as input dataset in the field marked with “1”. Then we have to define an output filename in the field marked with “2”. There are two options, it is either possible to use a mask–layer to define the area to which the Raster dataset is clipped to (Clipping mode “mask layer”, marked with “4” in Figure 5), or alternatively we can just draw a rectangle in the QGIS window (Clipping mode “Extent”, marked with “3” in Figure 5). In the current case we will use the standard option “Extent” and draw a rectangle in the main visualization window which matches roughly the extent of the satellite image as seen in Figure 6. Then we press “OK” to clip the raster.**
+**select “Raster” -> “Extraction” -> “Clip Raster by Extent” from the main menu in QGIS as shown in Figure 5. This will open a new dialogue as shown in Figure 6. In the given case we have to define three variables. We have to select the “ASTGTM2_N40E014_dem” layer as input dataset in the field marked with “1”. Then we have to define an output filename in the field marked with “2”. Finally, we have to define the clipping extent by drawing a rectangle in the QGIS window after pressing the drop down menu (marked with “3” in Figure 5) and selecting "draw on canvas". We now draw a rectangle in the main visualization window which matches roughly the extent of the satellite image as seen in Figure 6. Then we press “OK” to clip the raster.**
 
 It of course helps to drag the satellite image above the elevation dataset in the “layer window” section of QGIS for drawing the rectangle as the satellite image is otherwise fully covered by the elevation dataset. Please make also sure that you select the re–projected elevation dataset as input file as otherwise an error message might appear that originates from the differing CRS systems, eventhough this might not be apparent from the error message.
 
-![Figure 5: Opening the “clip” tool..](Fig5_Tut7.png)
+![Figure 5: Opening the “clip” tool.](Fig5_Tut7.png)
 
+**Figure 5: Opening the “clip” tool.**
 
 ![Figure 6: Parameterizing the clip-tool in QGIS.](Fig6_Tut7.png)
+
+**Figure 6: Parameterizing the clip-tool in QGIS.**
 
 ## 2 Calculating slope and aspect images from a digital terrain model
 We have just successfully re–projected and clipped our elevation dataset. Next, we will calculate a slope and an aspect image from the elevation dataset. We will start with calculating a slope image by,
