@@ -129,9 +129,11 @@ This will result in the situation depicted in Figure 17 where we can now see the
 **Figure 17: Contour lines with labels added.**
 
 ## 4 Applying thresholds to a raster file
-As final step of this Tutorial, we will learn how to apply thresholds to raster files using the elevattion data as an example. We will use the raster calculator tool to accomplish this. Thresholds can for example be used to define all areas located above or below a certain value. In our example these will be elevation heights, however, in theory thresholds can be set for any raster file.
+As final step of this Tutorial, we will learn how to apply thresholds to raster files using the elevation data as an example. We will use the raster calculator tool to accomplish this. Thresholds are used to define all areas located above or below a certain value. In our example these will be elevation heights, however, in theory thresholds can be set for any raster file.
 
 ![Figure 18: Opening the “raster calculator”.](Fig18_Tut7.png)
+
+**Figure 18: Opening the “raster calculator”.**
 
 we will now learn two approaches for setting thresholds. We will first
 
@@ -139,9 +141,15 @@ we will now learn two approaches for setting thresholds. We will first
 
 ![Figure 19: Defining a threshold rule in the “raster calculator”.](Fig19_Tut7.png)
 
+**Figure 19: Defining a threshold rule in the “raster calculator”.**
+
 This will lead to the situation shown in Figure 20 where we can see that a binary raster image has been created where all pixels in the rasterfile have either a value of 0 or 1. We can clearly see, that especially the areas around the vulcano and the areas in the South and East – from which we know that they are rather mountainous – were found to have elevations above 50 m as indicated by the white colour which stands for a value of 1.
 
+Be aware that it could also happen that you see a completely grey output image. In this case you might have to adapt the symbology of the raster and define a minimum value of 0 and a maximum value of 1. You should already be familiar with the steps you have to conduct to accomplish this.
+
 ![Figure 20: The resulting binary mask showing all areas with elevation above 50 m.](Fig20_Tut7.png)
+
+**Figure 20: The resulting binary mask showing all areas with elevation above 50 m.**
 
 One thing, that we could see critical in the current binary image is that we make no difference between areas on land and in the sea. In the elevation dataset, all areas covered by sea have a fixed elevation value of 0. So in the next step, we will apply another threshold but this time we want to extract all areas that are located higher than 0 m and lower than 50 m. To do this,
 
@@ -151,7 +159,12 @@ This will lead to a new situation as shown in 22. We can now see that especially
 
 ![Figure 21: Defining a slightly more complex threshold rule.](Fig21_Tut7.png)
 
+**Figure 21: Defining a slightly more complex threshold rule.**
+
 ![Figure 22: Resulting binary image when applying the slightly more compley rule.](Fig22_Tut7.png)
+
+**Figure 22: Resulting binary image when applying the slightly more compley rule.**
+
 ## 5 Converting raster datasets to vector polygons
 One way to mark all areas of the satellite image located at elevations between 0 and 50 m is to first transform the threshold raster layer to a polygon file and then only keep the Polygons that have a value of 1 (that means, they match the rule defined above of having a location between 0 and 50 m). To do this, we
 
@@ -159,20 +172,31 @@ One way to mark all areas of the satellite image located at elevations between 0
 
 ![Figure 23: Opening the tool to “Polygonize Raster to Vector files”.](Fig23_Tut7.png)
 
+**Figure 23: Opening the tool to “Polygonize Raster to Vector files”.**
+
 ![Figure 24: Parameterizing the “Polygonize Raster to Vector” tool.](Fig24_Tut7.png)
+
+**Figure 24: Parameterizing the “Polygonize Raster to Vector” tool.**
 
 This will create a Shapefile that matches the patterns of the raster layer. Polygons will be composed by stitching all spatially connected pixels having either a value of 0 or a value of 1 together. The corresponding resulting polygon layer can be seen in Figure 25.
 
 ![Figure 25: The polygon layer created with the “Polygonize Raster to Vector” tool.](Fig25_Tut7.png)
 
+**Figure 25: The polygon layer created with the “Polygonize Raster to Vector” tool.**
+
 In Figure 26 you can see the same file after the visualization settings of the Polygon vector layer have been adapted. This view can be reached by
 
-**right–clicking the newly created polygon layer and selecting “Properties” and then clicking the “Style” tab. Here, we now select the ”Categorized” display option from the drop–down menu marked with “1” in Figure 27. We then select “DN” in the “Column” field marked with “2” and press classify (marked with “3”) which will display the two different values of the DN column in the attribute table which was created based on the digital numbers (DN) of the raster layer which we transformed to Polygons in the preceeding step. We can now adapt the colours of both categories by double clicking the squares in the “Symbol” column of the section marked with “4” and as learned in Tutorial 2. Here, the colour for the outline and filling of the Polygons with value 0 were set to transparent to make them visually disappear. Polygons with a DN value of 1 were set to a transparent red. Try to accomplish this on your own by adapting the visualization settings in the “Style tab” of the “Properties dialogue” as learned in the earlier Tutorials.**
+**right–clicking the newly created polygon layer and selecting “Properties” and then clicking the “Symbology” tab. Here, we now select the ”Categorized” display option from the drop–down menu marked with “1” in Figure 27. We then select “DN” in the “Column” field marked with “2” and press classify (marked with “3”) which will display the two different values of the DN column in the attribute table which was created based on the digital numbers (DN) of the raster layer which we transformed to Polygons in the preceeding step. We can now adapt the colours of both categories by double clicking the squares in the “Symbol” column of the section marked with “4” and as learned in Tutorial 2. Here, the colour for the outline and filling of the Polygons with value 0 were set to transparent to make them visually disappear. Polygons with a DN value of 1 were set to a transparent red. Try to accomplish this on your own by adapting the visualization settings in the “Style tab” of the “Properties dialogue” as learned in the earlier Tutorials.**
 
 ![Figure 26: Polygon layer with adapted visualization settings.](Fig26_Tut7.png)
 
+**Figure 26: Polygon layer with adapted visualization settings.**
+
 ![Figure 27: Visualization settings of the polygon vector layer.](Fig27_Tut7.png)
-## 6 Exercise Tutorial 7
+
+**Figure 27: Visualization settings of the polygon vector layer.**
+
+## 6 Exercises Tutorial 7
 To further practice the work with elevation datasets, try to identify the top height of the vulcano by using the Info–Button of the main menu of QGIS which you already know from Tutorial 4. Report the approximate top height in a Word-Document.
 
 Furthermore, let us assume that a certain endemic plant species of this region of Italy only grows in altitudes between 300 and 800 m. To identify the potential habitat of this species in our study area, create a Polygon layer that marks all areas located between an elevation of 300 and 800 m. Adapt the visualization settings of this Polygon by changing the color to green and set the transparency to 50 percent. Then make sure that only the satellite image and the just created Polygon are activated in the current display (Polygon on top of the satellite image). Then zoom to the full extent of the satellite image and export the current view by selecting “Project” -> “Save as Image” from the main menu of QGIS. This will be the proof that you have completed this Tutorial.
