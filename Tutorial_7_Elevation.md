@@ -96,7 +96,7 @@ The newly created “aspect” image should now appear in main visualization win
 **Figure 12: The aspect image of the study area.**
 
 ## 3 Extracting contour lines from the digital terrain model
-Currently our elevation data is stored in a raster layer dataset. On the one hand side this advantageous as we have a height value for each position in out test area. However, on the negative side, we cannot display the satellite image and the height information at the same time as only one raster dataset can be efficiently displayed at one time. A well-known alternative to an elevation raster dataset are height iso-lines also called contour lines which are frequently applied in topographic maps. In QGIS there is an option to automatically create contour lines from the elevation raster dataset. We will now make use of this option by
+Currently our elevation data is stored in a raster layer dataset. On the one hand side this is advantageous as we have a height value for each position in our test area. However, on the negative side, we cannot display the satellite image and the height information at the same time as only one raster dataset can be efficiently displayed at one time. A well-known alternative to an elevation raster dataset are height iso-lines also called contour lines which are frequently applied in topographic maps. In QGIS there is an option to automatically create contour lines from the elevation raster dataset. We will now make use of this option by
 
 **selecting “Raster” -> “Extraction” -> “Contour...” from the main menu of QGIS as shown in Figure 13. In the new dialogue we select the re–projected and clipped raster file as Input file (field marked with “1” in Figure 14), define an output file for the contour lines (field marked with “2”), we set the height interval to 50 m (field marked with “3”). We can change the “Attribute name” (marked with “4”) if we want to. We then press “OK” to calculate the contour lines.**
 
@@ -135,7 +135,7 @@ As final step of this Tutorial, we will learn how to apply thresholds to raster 
 
 **Figure 18: Opening the “raster calculator”.**
 
-we will now learn two approaches for setting thresholds. We will first
+We will now learn two approaches for setting thresholds. We will first
 
 **open the raster calculator by selecting “Raster” -> “Raster Calculator...” from the main menu in QGIS as shown in Figure 18. Now the “raster calculator” tool will be opened as seen in Figure 19. We will now create our first threshold image by composing a rule (here called expression) which defines the threshold we want to apply. To do this we first define an output file using the field marked with “2”, then we double-click the clipped and re–projected elevation data layer listed in the “Raster Bands” section marked with “1”. When double-clicking the layer, it will appear in the “Raster calculator expression” section marked with “3”. We will now complete the expression by first clicking the “greater than” button marked with “4” and then entering the digits “50” into the expression window. With this expression, all pixels in the re–projected and clipped elevation raster with values above 50 m will be set to 1 and all pixels with values below 50 m will be set to 0. To check whether this works, we press the “OK” button.**
 
