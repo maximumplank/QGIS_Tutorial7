@@ -163,7 +163,7 @@ This will lead to a new situation as shown in 22. We can now see that especially
 
 ![Figure 22: Resulting binary image when applying the slightly more compley rule.](Fig22_Tut7.png)
 
-**Figure 22: Resulting binary image when applying the slightly more compley rule.**
+**Figure 22: Resulting binary image when applying the slightly more complex rule.**
 
 ## 5 Converting raster datasets to vector polygons
 One way to mark all areas of the satellite image located at elevations between 0 and 50 m is to first transform the threshold raster layer to a polygon file and then only keep the Polygons that have a value of 1 (that means, they match the rule defined above of having a location between 0 and 50 m). To do this, we
@@ -186,7 +186,7 @@ This will create a Shapefile that matches the patterns of the raster layer. Poly
 
 In Figure 26 you can see the same file after the visualization settings of the Polygon vector layer have been adapted. This view can be reached by
 
-**right–clicking the newly created polygon layer and selecting “Properties” and then clicking the “Symbology” tab. Here, we now select the ”Categorized” display option from the drop–down menu marked with “1” in Figure 27. We then select “DN” in the “Column” field marked with “2” and press classify (marked with “3”) which will display the two different values of the DN column in the attribute table which was created based on the digital numbers (DN) of the raster layer which we transformed to Polygons in the preceeding step. We can now adapt the colours of both categories by double clicking the squares in the “Symbol” column of the section marked with “4” and as learned in Tutorial 2. Here, the colour for the outline and filling of the Polygons with value 0 were set to transparent to make them visually disappear. Polygons with a DN value of 1 were set to a transparent red. Try to accomplish this on your own by adapting the visualization settings in the “Style tab” of the “Properties dialogue” as learned in the earlier Tutorials.**
+**right–clicking the newly created polygon layer and selecting “Properties” and then clicking the “Symbology” tab. Here, we now select the ”Categorized” display option from the drop–down menu marked with “1” in Figure 27. We then select “DN” in the “Value” field marked with “2” and press classify (marked with “3”) which will display the two different values of the DN column in the attribute table which was created based on the digital numbers (DN) of the raster layer which we transformed to Polygons in the preceeding step. We can now adapt the colours of both categories by double clicking the squares in the “Symbol” column of the section marked with “4” and as learned in Tutorial 2. Here, the colour for the outline and filling of the Polygons with value 0 were set to transparent to make them visually disappear. Polygons with a DN value of 1 were set to a transparent red. Try to accomplish this on your own by adapting the visualization settings in the “Style tab” of the “Properties dialogue” as learned in the earlier Tutorials.**
 
 ![Figure 26: Polygon layer with adapted visualization settings.](Fig26_Tut7.png)
 
